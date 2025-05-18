@@ -125,7 +125,7 @@ async def cd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 await update.message.reply_text('Direktori tidak ditemukan')
                 return
         # Menggunakan os.system("cd <path>") tidak akan berpengaruh
-         os.system(f"cd {current_dir}")
+        #os.system(f"cd {current_dir}")
         
         # Menggunakan os.chdir() untuk mengubah direktori kerja proses Python
         os.chdir(current_dir)
