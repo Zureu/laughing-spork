@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-os.system("pkg install screen")
+os.system("pkg install screen -y")
 screen_name = "rScreen"
 bot_file = os.path.expanduser("~/ChDDoS.py")
 
