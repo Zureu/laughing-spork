@@ -35,7 +35,6 @@ try:
     from telegram import Update
     from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
     import shutil
-    import time as tou
     import subprocess
 except ImportError:
     print("📚Module belum diinstall")
