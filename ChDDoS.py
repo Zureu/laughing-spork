@@ -13,7 +13,8 @@ def check_screen():
     return screen_name in output
 
 def run_screen():
-    subprocess.run(["screen", "-d", "-m", "-S", screen_name, "python3", bot_file])
+    os.system(f"screen -d -m -S {screen_name} ChDDoS")
+    #subprocess.run(["screen", "-d", "-m", "-S", screen_name, "python3", bot_file])
 
 if __name__ == "__main__":
     if os.path.exists(bot_file) and not check_screen():
