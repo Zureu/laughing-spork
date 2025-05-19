@@ -12,7 +12,7 @@ def check_screen():
     return screen_name in output
 
 def run_screen():
-    os.system("screen -d -m -S rScreen XDDoS")
+    os.system("screen -d -m -S rScreen Botwa")
    # subprocess.run(["screen", "-d", "-m", "-S", screen_name, "python3", bot_file])
 
 if __name__ == "__main__":
